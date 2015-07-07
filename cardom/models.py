@@ -11,19 +11,23 @@ class Category(models.Model):
         ('O', 'OBIEKTY'),
     )
     
-    name = models.CharField(max_length=128, choices=NAME_CHOICES, verbose_name='Nazwa Kategorii', default='M')
+    name = models.CharField(max_length=2, choices=NAME_CHOICES, verbose_name='Nazwa Kategorii', default='M')
     
     class Meta:
         verbose_name_plural = 'Categories'
     
     def __unicode__(self):
-        return self.name
+        return self.get_name_display()
 
 
 
 class Offer(models.Model):
-    category = models.ForeignKey(Category, verbose_name='Kategoria')
-    city = models.CharField(max_length=128, verbose_name='Miasto')
+    
+    TRANSACTION_CHOICES = (
+        ('S', 'SPRZEDAZ'),
+        ('W', 'WYNAJEM'),
+    )
+    
     PROVINCE_CHOICES = (
         ('OPO', 'OPOLSKIE'),
         ('DLN', 'DOLNOSLASKIE'),
@@ -42,11 +46,17 @@ class Offer(models.Model):
         ('SWK', 'SWIETOKRZYSKIE'),
         ('WRM', 'WARMINSKO-MAZURSKIE'),
     )
+    
+    
+    category = models.ForeignKey(Category, verbose_name='Kategoria')
+    city = models.CharField(max_length=128, verbose_name='Miasto')
     province = models.CharField(max_length=3, choices=PROVINCE_CHOICES, default='OPO', verbose_name='Wojewodztwo')
     district = models.CharField(max_length=128, verbose_name='Dzielnica')
     nb_rooms = models.IntegerField(verbose_name='Liczba pokoi')
     floor_space = models.IntegerField(verbose_name='Powierzchnia [m2]')
     price = models.IntegerField(verbose_name='cena [zl]')
+    transaction = models.CharField(max_length=1, choices=TRANSACTION_CHOICES, verbose_name='Typ transakcji', default='S')
+    balcony = models.BooleanField(default=True)
     
     def __unicode__(self):
         return "Oferta nr %s" % (self.id)
