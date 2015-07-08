@@ -12,7 +12,7 @@ class OfferImageInline(admin.TabularInline):
 
 class OfferAdmin(admin.ModelAdmin):
     inlines = [ OfferImageInline, ]
-    list_display = ('id', 'category', 'city', 'district', 'floor_space', 'price')
+    list_display = ('id', 'category', 'city', 'district', 'floor_space', 'price', 'promoted')
 
 admin.site.unregister(Offer)
 admin.site.register(Offer, OfferAdmin)

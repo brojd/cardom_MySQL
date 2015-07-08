@@ -56,7 +56,8 @@ class Offer(models.Model):
     floor_space = models.IntegerField(verbose_name='Powierzchnia [m2]')
     price = models.IntegerField(verbose_name='cena [zl]')
     transaction = models.CharField(max_length=1, choices=TRANSACTION_CHOICES, verbose_name='Typ transakcji', default='S')
-    balcony = models.BooleanField(default=True)
+    balcony = models.BooleanField(verbose_name='Balkon', default=True)
+    promoted = models.BooleanField(verbose_name='Promowana', default=False)
 
     def __unicode__(self):
         return "Oferta nr %s" % (self.id)
