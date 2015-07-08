@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Category(models.Model):
@@ -58,6 +59,7 @@ class Offer(models.Model):
     transaction = models.CharField(max_length=1, choices=TRANSACTION_CHOICES, verbose_name='Typ transakcji', default='S')
     balcony = models.BooleanField(verbose_name='Balkon', default=True)
     promoted = models.BooleanField(verbose_name='Promowana', default=False)
+    pub_date = models.DateTimeField(verbose_name='Data publikacji')
 
     def __unicode__(self):
         return "Oferta nr %s" % (self.id)
