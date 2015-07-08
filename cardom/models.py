@@ -58,11 +58,13 @@ class Offer(models.Model):
     transaction = models.CharField(max_length=1, choices=TRANSACTION_CHOICES, verbose_name='Typ transakcji', default='S')
     balcony = models.BooleanField(default=True)
 
+    def __unicode__(self):
+        return "Oferta nr %s" % (self.id)
+
 
 class OfferImage(models.Model):
     
     offer = models.ForeignKey(Offer, related_name='images')
     images = models.ImageField(verbose_name="zdjecia", blank=True, null=True)
     
-    def __unicode__(self):
-        return "Oferta nr %s" % (self.id)
+    
