@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.utils import timezone
 
 # Create your models here.
 class Category(models.Model):
@@ -59,7 +60,7 @@ class Offer(models.Model):
     transaction = models.CharField(max_length=1, choices=TRANSACTION_CHOICES, verbose_name='Typ transakcji', default='S')
     balcony = models.BooleanField(verbose_name='Balkon', default=True)
     promoted = models.BooleanField(verbose_name='Promowana', default=False)
-    pub_date = models.DateTimeField(verbose_name='Data publikacji')
+    pub_date = models.DateTimeField(verbose_name='Data publikacji', default=timezone.now())
 
     def __unicode__(self):
         return "Oferta nr %s" % (self.id)

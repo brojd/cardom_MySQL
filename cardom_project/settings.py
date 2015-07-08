@@ -15,11 +15,9 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
-TEMPLATE_DIR = (TEMPLATE_PATH,)
-STATIC_DIR = (STATIC_PATH,)
+STATIC_DIRS = (STATIC_PATH,)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -60,7 +58,7 @@ ROOT_URLCONF = 'cardom_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
