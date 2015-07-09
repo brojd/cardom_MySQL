@@ -24,3 +24,8 @@ def houses(request):
     house_offers = Offer.objects.filter(category__name='D').order_by('-pub_date')
     context_dict = {'house_offers': house_offers}
     return render(request, 'cardom/houses.html', context_dict)
+
+def lots(request):
+    lot_offers = Offer.objects.filter(category__name='DZ').order_by('-pub_date')
+    context_dict = {'lot_offers': lot_offers}
+    return render(request, 'cardom/lots.html', context_dict)
