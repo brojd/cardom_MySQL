@@ -7,12 +7,12 @@
 2
 <ul>
     {% for offer in latest_offers %}
-    <li>{{offer.category}} {{offer.city}}</li>
+    <li>{{ offer.category }} {{ offer.city }}</li>
     {% endfor %}
 </ul><br />
 3
 <ul>
     {% for pro_offer in promoted_offers %}
-    <li>{{offer.category}} {{offer.city}} {{offer.pub_date}}</li>
+    <li>{{ pro_offer.category }} {{ pro_offer.city }} {{ pro_offer.pub_date }}</li>
     {% endfor %}
 </ul>
