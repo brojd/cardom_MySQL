@@ -29,3 +29,13 @@ def lots(request):
     lot_offers = Offer.objects.filter(category__name='DZ').order_by('-pub_date')
     context_dict = {'lot_offers': lot_offers}
     return render(request, 'cardom/lots.html', context_dict)
+
+def locals(request):
+    local_offers = Offer.objects.filter(category__name='L').order_by('-pub_date')
+    context_dict = {'local_offers': local_offers}
+    return render(request, 'cardom/locals.html', context_dict)
+
+def other_objects(request):
+    other_object_offers = Offer.objects.filter(category__name='O').order_by('-pub_date')
+    context_dict = {'other_object_offers': other_object_offers}
+    return render(request, 'cardom/other_objects.html', context_dict)
