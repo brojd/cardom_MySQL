@@ -16,6 +16,6 @@ def index(request):
     return render(request, 'cardom/index.html', context_dict)
 
 def flats(request):
-    flat_offers = Offer.objects.order_by('-pub_date')
+    flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
     context_dict = {'flat_offers': flat_offers}
     return render(request, 'cardom/flats.html', context_dict)
