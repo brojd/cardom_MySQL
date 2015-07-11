@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Category, Offer
-
+from .filters import OfferFilter
 
 # Create your views here.
 def index(request):
@@ -51,3 +51,7 @@ def career(request):
 
 def publish_offer(request):
     return render(request, 'publish_offer.html', {})
+
+def offer_list(request):
+    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    return render(request, 'cardom/offer_list.html', {'filter': f})

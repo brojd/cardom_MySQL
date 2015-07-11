@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^about/', views.about, name='about'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^career/', views.career, name='career'),
-    url(r'^publish_offer/', views.publish_offer, name='publihs_offer'),
+    url(r'^publish_offer/', views.publish_offer, name='publish_offer'),
+    url(r'^offer_list/', views.offer_list, name='offer_list'),
     )

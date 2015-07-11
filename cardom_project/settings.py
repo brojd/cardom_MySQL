@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cardom',
+    'filters',
 )
 
 MIDDLEWARE_CLASSES = (
