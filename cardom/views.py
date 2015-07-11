@@ -39,3 +39,15 @@ def other_objects(request):
     other_object_offers = Offer.objects.filter(category__name='O').order_by('-pub_date')
     context_dict = {'other_object_offers': other_object_offers}
     return render(request, 'cardom/other_objects.html', context_dict)
+
+def about(request):
+    return render(request, 'cardom/about.html', {})
+
+def contact(request):
+    return render(request, 'cardom/contact.html', {})
+
+def career(request):
+    return render(request, 'cardom/career.html', {})
+
+def publish_offer(request):
+    return render(request, 'publish_offer.html', {})

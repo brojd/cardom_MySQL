@@ -8,4 +8,8 @@ urlpatterns = patterns('',
     url(r'^lots/', views.lots, name='lots'),
     url(r'^locals/', views.locals, name='locals'),
     url(r'^objects/', views.other_objects, name='other_objects'),
+    url(r'^about/', views.about, name='about'),
+    url(r'^contact/', views.contact, name='contact'),
+    url(r'^career/', views.career, name='career'),
+    url(r'^publish_offer/', views.publish_offer, name='publihs_offer'),
     )
