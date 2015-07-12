@@ -80,6 +80,14 @@ def publish_offer(request):
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
     return render(request, 'cardom/publish_offer.html', {'filter': f})
 
+def credits(request):
+    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    return render(request, 'cardom/credits.html', {'filter': f})
+
+def prices(request):
+    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    return render(request, 'cardom/prices.html', {'filter': f})
+
 def offer_list(request):
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
     return render(request, 'cardom/offer_list.html', {'filter': f})

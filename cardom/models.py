@@ -50,7 +50,7 @@ class Offer(models.Model):
     )
     
     
-    category = models.ForeignKey(Category, verbose_name='Kategoria')
+    category = models.ForeignKey(Category, verbose_name='Rodzaj obiektu')
     city = models.CharField(max_length=128, verbose_name='Miasto')
     province = models.CharField(max_length=3, choices=PROVINCE_CHOICES, default='OPO', verbose_name='Wojewodztwo')
     district = models.CharField(max_length=128, verbose_name='Dzielnica')
