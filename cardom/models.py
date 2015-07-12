@@ -70,5 +70,6 @@ class OfferImage(models.Model):
     
     offer = models.ForeignKey(Offer, related_name='images')
     images = models.ImageField(verbose_name="zdjecia", blank=True, null=True)
+    main_image = models.BooleanField(verbose_name='zdjecie glowne', default=False)
     
     
