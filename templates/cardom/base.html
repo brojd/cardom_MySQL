@@ -1,0 +1,10 @@
+<form action="/offer_list/" method="get">
+    {{ filter.form.as_p }}
+    <input type="submit" />
+</form>
+{% for obj in filter %}
+    {{ obj.name }} - ${{ obj.price }}<br />
+{% endfor %}
+
+{% block content %}
+{% endblock %}
