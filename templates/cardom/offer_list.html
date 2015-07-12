@@ -1,7 +1,9 @@
-<form action="" method="get">
-    {{ filter.form.as_p }}
-    <input type="submit" />
-</form>
+{% extends 'cardom/base.html' %}
+
+{% block content %}
+<br />
+oooooffffeeeer list
 {% for obj in filter %}
     {{ obj.name }} - ${{ obj.price }}<br />
 {% endfor %}
+{% endblock %}

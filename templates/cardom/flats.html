@@ -1,5 +1,9 @@
+{% extends 'cardom/base.html' %}
+
+{% block content %}
 <ul>
     {% for flat in flat_offers %}
     <li>{{ flat.category }}</li>
     {% endfor %}
 </ul>
+{% endblock %}

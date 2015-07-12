@@ -1,18 +1,28 @@
-1
-<ul>
-    {% for category in categories %}
-    <li>{{ category.name }}</li>
-    {% endfor %}
-</ul><br />
-2
+{% extends 'cardom/base.html' %}
+
+{% block content %}
+
+Najnowsze oferty
 <ul>
     {% for offer in latest_offers %}
-    <li>{{ offer.category }} {{ offer.city }}</li>
+    <li>{{offer.category}} {{offer.city}} {{offer.district}} {{offer.floor_space}} {{offer.price}} </li>
     {% endfor %}
 </ul><br />
-3
+
+Promowane oferty
 <ul>
     {% for pro_offer in promoted_offers %}
-    <li>{{ pro_offer.category }} {{ pro_offer.city }} {{ pro_offer.pub_date }}</li>
+    <li>{{pro_offer.category}} {{pro_offer.city}} {{pro_offer.district}} {{pro_offer.floor_space}} {{pro_offer.price}}</li>
     {% endfor %}
 </ul>
+<a href="{% url 'flats' %}">Mieszkania</a>
+<a href="{% url 'houses' %}">Domy</a>
+<a href="{% url 'lots' %}">Działki</a>
+<a href="{% url 'locals' %}">Lokale</a>
+<a href="{% url 'other_objects' %}">Obiekty</a><br />
+
+<a href="{% url 'about' %}">O firmie</a>
+<a href="{% url 'contact' %}">Kontakt</a>
+<a href="{% url 'career' %}">Kariera</a>
+<a href="{% url 'publish_offer' %}">Opublikuj ofertę</a>
+{% endblock %}
