@@ -1,19 +1,21 @@
 {% extends 'cardom/base.html' %}
 
 {% block content %}
-
+<div class="col-md-6">
 Najnowsze oferty
 <ul>
     {% for offer in latest_offers %}
     <li>{{offer.category}} {{offer.city}} {{offer.district}} {{offer.floor_space}} {{offer.price}} </li>
     {% endfor %}
 </ul><br />
+</div>
 
+<div class="col-md-6">
 Promowane oferty
 <ul>
     {% for pro_offer in promoted_offers %}
     <li>{{pro_offer.category}} {{pro_offer.city}} {{pro_offer.district}} {{pro_offer.floor_space}} {{pro_offer.price}}</li>
     {% endfor %}
 </ul>
-
+</div>
 {% endblock %}
