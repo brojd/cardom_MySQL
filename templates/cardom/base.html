@@ -41,17 +41,35 @@
     
     <div class="container">
       <div class="row">
-        <div class="col-md-12 col-sm-24 col-xs-48">
+        <div class="col-md-2 col-sm-4 col-xs-8">
+          <form class="form-horizontal" role="form" action="/offer_list/" method="get">
+            <table class="searchbox">
+              <tr><th><label for="id_province">Województwo:</label></th></tr>
+              <tr><td>{{ filter.form.province }}</td></tr>
+              <tr><th><label for="id_city">Miasto:</label></th></tr>
+              <tr><td>{{ filter.form.city }}</td></tr>
+              <tr><th><label for="id_category">Typ obiektu:</label></th></tr>
+              <tr><td>{{ filter.form.category }}</td></tr>
+              <tr><th><label for="id_transaction">Rodzaj transakcji:</label></th></tr>
+              <tr><td>{{ filter.form.transaction }}</td></tr>
+              <tr><th><label for="id_nb_rooms">Liczba pokoi:</label></th></tr>
+              <tr><td>{{ filter.form.nb_rooms }}</td></tr>
+              <tr><th><label for="id_floor_space">Powierzchnia [m2]:</label></th></tr>
+              <tr><td>{{ filter.form.floor_space }}</td></tr>
+              <tr><th><label for="id_price">Cena [zł]:</label></th></tr>
+              <tr><td>{{ filter.form.price }}</td></tr>
+            </table>
+            <input type="submit" />
+          </form>
+        </div>
+        <div class="col-md-10 col-sm-20 col-xs-40">
           {% block content %}
           {% endblock %}
         </div>
       </div>
     </div>
     
-    <form class="form-group" role="form" action="/offer_list/" method="get">
-      {{ filter.form.as_table }}
-      <input type="submit" />
-    </form>
+    
         
     <footer class="footer">
       <nav class="navbar navbar-default">

@@ -72,3 +72,16 @@
     background-color: #560000;
 }
 
+.searchbox td, th {
+    width: 140px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: small;
+    he
+}
+
+.searchbox th {
+  font-size: small
+}
+
