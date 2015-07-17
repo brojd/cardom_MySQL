@@ -53,13 +53,16 @@
               <tr><th><label for="id_transaction">Rodzaj transakcji:</label></th></tr>
               <tr><td>{{ filter.form.transaction }}</td></tr>
               <tr><th><label for="id_nb_rooms">Liczba pokoi:</label></th></tr>
-              <tr><td>{{ filter.form.nb_rooms }}</td></tr>
-              <tr><th><label for="id_floor_space">Powierzchnia [m2]:</label></th></tr>
-              <tr><td>{{ filter.form.floor_space }}</td></tr>
+              <tr><td>Od{{ filter.form.min_nb_rooms }}</td></tr>
+              <tr><td>Do{{ filter.form.max_nb_rooms }}</td></tr>
+              <tr><th><label for="id_min_floor_space">Powierzchnia [m2]:</label></th></tr>
+              <tr><td>Od{{ filter.form.min_floor_space }}</td></tr>
+              <tr><td>Do{{ filter.form.max_floor_space }}</td></tr>
               <tr><th><label for="id_price">Cena [zł]:</label></th></tr>
-              <tr><td>{{ filter.form.price }}</td></tr>
-            </table>
-            <input type="submit" />
+              <tr><td>Od{{ filter.form.min_price }}</td></tr>
+              <tr><td>Do{{ filter.form.max_price }}</td></tr>
+            </table><br/>
+            <input type="submit" class="search_button" value="Szukaj"/>
           </form>
         </div>
         <div class="col-md-10 col-sm-20 col-xs-40">

@@ -72,16 +72,34 @@
     background-color: #560000;
 }
 
+body {
+  background-color: #E1E1E1
+}
+
+input, textarea, select {
+  width: 150px;
+  font-size: 12px;
+  margin: 0px 0px 0px 0px;
+}
+
+.form-horizontal {
+  background-color: #ABABAB;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  margin-bottom: 20px;
+  border-radius: 10px
+}
+
 .searchbox td, th {
-    width: 140px;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    font-size: small;
-    he
+  padding: 0px 5px 0px 5px 
+}
+
+.search_button {
+  margin-left: 7px;
+  margin-bottom: 10px;
+  font-size: 14px
 }
 
 .searchbox th {
-  font-size: small
+  padding-top: 8px
 }
-
