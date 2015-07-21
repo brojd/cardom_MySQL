@@ -103,3 +103,37 @@ input, textarea, select {
 .searchbox th {
   padding-top: 8px
 }
+
+.table_center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.table_center th {
+  text-align: center;
+  background-color: #1c1e20;
+  color: #ffffff;
+}
+
+.table_center tr td {
+  
+  
+}
+
+.table_center p {
+  display: inline-block;
+  margin: 5px 17px;
+}
+
+.info {
+    background-color: #ABABAB;
+}
+
+.location {
+  text-align: center;
+  background-color: #940e00;
+  color: #ffffff;
+}
+
