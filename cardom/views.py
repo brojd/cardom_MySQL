@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Category, Offer
+from .models import Category, Offer, OfferImage
 from .filters import OfferFilter
 
 # Create your views here.
@@ -9,6 +9,7 @@ def index(request):
     latest_offers = Offer.objects.order_by('-pub_date')[:10]
     promoted_offers = Offer.objects.filter(promoted=True).order_by('-pub_date')[:10]
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
+
     
     context_dict = {
         'categories': category_list,

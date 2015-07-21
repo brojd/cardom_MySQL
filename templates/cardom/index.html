@@ -3,11 +3,13 @@
 {% block content %}
 <div class="col-md-6">
 Najnowsze oferty
-<ul>
+<table class="table">
     {% for offer in latest_offers %}
-    <li>{{offer.category}} {{offer.city}} {{offer.district}} {{offer.floor_space}} {{offer.price}} </li>
+    <tr><th>{{offer.category}}</th></tr>
+    <tr><td><img src="{{ offer.main_image.url }}" height="180" width="260" alt="error"></td></tr>
+    <tr><td>{{offer.city}} {{offer.district}} {{offer.floor_space}} {{offer.price}} </td></tr>
     {% endfor %}
-</ul><br />
+</table><br />
 </div>
 
 <div class="col-md-6">

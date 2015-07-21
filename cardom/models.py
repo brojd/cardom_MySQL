@@ -1,16 +1,19 @@
+#-*- coding: utf-8 -*-
+
 from django.db import models
 import datetime
 from django.utils import timezone
+
 
 # Create your models here.
 class Category(models.Model):
     
     NAME_CHOICES = (
-        ('D', 'DOMY'),
-        ('M', 'MIESZKANIA'),
-        ('L', 'LOKALE'),
-        ('DZ', 'DZIALKI'),
-        ('O', 'OBIEKTY'),
+        ('D', 'DOM'),
+        ('M', 'MIESZKANIE'),
+        ('L', 'LOKAL'),
+        ('DZ', 'DZIAŁKA'),
+        ('O', 'OBIEKT'),
     )
     
     name = models.CharField(max_length=2, choices=NAME_CHOICES, verbose_name='Nazwa Kategorii', default='M')
@@ -26,7 +29,7 @@ class Category(models.Model):
 class Offer(models.Model):
     
     TRANSACTION_CHOICES = (
-        ('S', 'SPRZEDAZ'),
+        ('S', 'SPRZEDAŻ'),
         ('W', 'WYNAJEM'),
     )
     
@@ -61,6 +64,7 @@ class Offer(models.Model):
     balcony = models.BooleanField(verbose_name='Balkon', default=True)
     promoted = models.BooleanField(verbose_name='Promowana', default=False)
     pub_date = models.DateTimeField(verbose_name='Data publikacji', default=timezone.now())
+    main_image = models.ImageField(verbose_name='Zdjęcie główne', blank=True, null=True)
 
     def __unicode__(self):
         return "Oferta nr %s" % (self.id)
@@ -69,7 +73,6 @@ class Offer(models.Model):
 class OfferImage(models.Model):
     
     offer = models.ForeignKey(Offer, related_name='images')
-    images = models.ImageField(verbose_name="zdjecia", blank=True, null=True)
-    main_image = models.BooleanField(verbose_name='zdjecie glowne', default=False)
+    images = models.ImageField(verbose_name="zdjecia", upload_to='photos/', blank=True, null=True)
     
     
