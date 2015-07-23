@@ -1,5 +1,12 @@
 {% extends 'cardom/base.html' %}
 
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'cardom/css/index.css' %}">
+{% endblock %}
+
+
 {% block content %}
 <div class="col-md-6">
 <div class="title">Najnowsze oferty</div></br>
