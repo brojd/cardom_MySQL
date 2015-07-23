@@ -65,6 +65,7 @@ class Offer(models.Model):
     promoted = models.BooleanField(verbose_name='Promowana', default=False)
     pub_date = models.DateTimeField(verbose_name='Data publikacji', default=timezone.now())
     main_image = models.ImageField(verbose_name='Zdjęcie główne', blank=True, null=True)
+    description = models.TextField(verbose_name='Opis', blank=True, null=True)
 
     def __unicode__(self):
         return "Oferta nr %s" % (self.id)
