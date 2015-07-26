@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Category, Offer, OfferImage
 from .filters import OfferFilter
+from .forms import OfferSort
 
 # Create your views here.
 def index(request):
@@ -23,9 +24,15 @@ def index(request):
 def flats(request):
     flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    if request.method=="GET":
+        form = OfferSort(request.GET)
+        sortby_choice = request.GET.get('sort_offer', '')
+        if sortby_choice=='PDR':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
     context_dict = {
         'flat_offers': flat_offers,
-        'filter': f
+        'filter': f,
+        'form': form,
         }
     return render(request, 'cardom/flats.html', context_dict)
 
@@ -92,3 +99,6 @@ def prices(request):
 def offer_list(request):
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
     return render(request, 'cardom/offer_list.html', {'filter': f})
+
+
+            
