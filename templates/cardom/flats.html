@@ -2,13 +2,23 @@
 
 {% load staticfiles %}
 
-{% block css %}
+{% block head %}
 <link rel="stylesheet" href="{% static 'cardom/css/category_page.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="col-md-12">
 <div class="title">Mieszkania</div></br>
+
+<form action="/flats/" method="get">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="OK">
+</form>
+
+<button type="button" class="btn btn-default" aria-label="Left Align">
+  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+</button>
 
 {% for offer in flat_offers %}
         <table class="table_center">
