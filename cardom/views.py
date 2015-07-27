@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Category, Offer, OfferImage
 from .filters import OfferFilter
@@ -173,6 +173,10 @@ def prices(request):
 def offer_list(request):
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
     return render(request, 'cardom/offer_list.html', {'filter': f})
+
+def offer_details(request, pk):
+    offer = get_object_or_404(Offer, pk=pk)
+    return render(request, 'cardom/offer_details.html', {'offer': offer})
 
 
             
