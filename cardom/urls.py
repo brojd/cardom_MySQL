@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^publish_offer/', views.publish_offer, name='publish_offer'),
     url(r'^credits/', views.credits, name='credits'),
     url(r'^offer_list/', views.offer_list, name='offer_list'),
-    url(r'prices/', views.prices, name='prices'),
+    url(r'^prices/', views.prices, name='prices'),
+    url(r'^details/(?P<pk>[0-9]+)/', views.offer_details, name='details'),
     )
