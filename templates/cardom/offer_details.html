@@ -2,19 +2,34 @@
 
 {% load staticfiles %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'cardom/css/offer_details.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="col-md-12">
+
 <div class="title">Szczegóły oferty</div></br>
-
-
             <table class="table_center">
-            <tr><th>{{offer.category}}</th></tr>
-            <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td><td rowspan="3">{{ offer.description }}</td></tr>
-            <tr><td><img src="{{ offer.main_image.url }}" height="120" width="220" alt="error"></td></tr>
-            <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
+            <tr><th>{{offer.category}} NA {{offer.get_transaction_display}}</th></tr>
+            <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td></tr>
+            <tr><td><p>{{offer.floor_space}}m2</p><p>{{offer.get_transaction_display}}</p><p>{{offer.price}}zł </p></td></tr>
+            <tr><td>{{ offer.description }}</td></tr>
             </table>
+            </br>
 
-        </br>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ offer.main_image.url }}" height="120" width="220" alt="error">
+              </a>
+            </div>
+            {% for pic in gallery %}
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ pic.images.url }}" height="120" width="220" alt="error">
+              </a>
+            </div>
+            {% endfor %}
+        </div>
 
-</div>
 {% endblock %}

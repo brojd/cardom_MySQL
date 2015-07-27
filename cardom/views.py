@@ -176,7 +176,14 @@ def offer_list(request):
 
 def offer_details(request, pk):
     offer = get_object_or_404(Offer, pk=pk)
-    return render(request, 'cardom/offer_details.html', {'offer': offer})
+    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    gallery = OfferImage.objects.filter(offer__pk=pk)
+    context_dict = {
+        'offer': offer,
+        'filter': f,
+        'gallery': gallery,
+        }
+    return render(request, 'cardom/offer_details.html', context_dict)
 
 
             
