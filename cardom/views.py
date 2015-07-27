@@ -49,9 +49,25 @@ def flats(request):
 def houses(request):
     house_offers = Offer.objects.filter(category__name='D').order_by('-pub_date')
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    if request.method=="GET":
+        form = OfferSort(request.GET)
+        sortby_choice = request.GET.get('sort_offer', '')
+        if sortby_choice=='PDM':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+        elif sortby_choice=='PDR':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+        elif sortby_choice=='PM':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+        elif sortby_choice=='PR':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+        elif sortby_choice=='FLM':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+        elif sortby_choice=='FLR':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
     context_dict = {
         'house_offers': house_offers,
         'filter': f,
+        'form': form,
         }
     return render(request, 'cardom/houses.html', context_dict)
 

@@ -1,9 +1,28 @@
 {% extends 'cardom/base.html' %}
 
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'cardom/css/category_page.css' %}">
+{% endblock %}
+
 {% block content %}
-<ul>
-    {% for house in house_offers %}
-    <li>{{ house.category }}</li>
-    {% endfor %}
-</ul>
+<div class="col-md-12">
+<div class="title">Domy</div></br>
+
+<form action="/houses/" method="get" class="sort_form">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-default">Ok</button>
+</form></br>
+
+{% for offer in house_offers %}
+        <table class="table_center">
+            <tr><th>{{offer.category}}</th></tr>
+            <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td><td rowspan="3">{{ offer.description }}</td></tr>
+            <tr><td><img src="{{ offer.main_image.url }}" height="120" width="220" alt="error"></td></tr>
+            <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
+        </table></br>
+{% endfor %}
+</div>
 {% endblock %}
