@@ -10,15 +10,11 @@
 <div class="col-md-12">
 <div class="title">Mieszkania</div></br>
 
-<form action="/flats/" method="get">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="OK">
-</form>
-
-<button type="button" class="btn btn-default" aria-label="Left Align">
-  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-</button>
+<form action="/flats/" method="get" class="sort_form">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-default">Ok</button>
+</form></br>
 
 {% for offer in flat_offers %}
         <table class="table_center">

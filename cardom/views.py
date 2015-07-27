@@ -27,8 +27,18 @@ def flats(request):
     if request.method=="GET":
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
-        if sortby_choice=='PDR':
+        if sortby_choice=='PDM':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+        elif sortby_choice=='PDR':
             flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+        elif sortby_choice=='PM':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+        elif sortby_choice=='PR':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+        elif sortby_choice=='FLM':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+        elif sortby_choice=='FLR':
+            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
     context_dict = {
         'flat_offers': flat_offers,
         'filter': f,

@@ -6,9 +6,13 @@ from models import Offer
 class OfferSort(forms.Form):
     SORT_CHOICES = (
         ('PDM', 'DATA PUBLIKACJI MALEJĄCO'),
-        ('PDR', 'DATA PUBLIKACJI ROSNĄCO')
+        ('PDR', 'DATA PUBLIKACJI ROSNĄCO'),
+        ('PM', 'CENA MALEJĄCO'),
+        ('PR', 'CENA ROSNĄCO'),
+        ('FLM', 'POWIERZCHNIA MALEJĄCO'),
+        ('FLR', 'POWIERZNIA ROSNĄCO')
     )
     
-    sort_offer = forms.ChoiceField(choices=SORT_CHOICES)
+    sort_offer = forms.ChoiceField(choices=SORT_CHOICES, label="Sortuj według", required=False)
         
     
