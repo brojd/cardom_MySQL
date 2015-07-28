@@ -1,0 +1,55 @@
+.title {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 30px;
+  display: block;
+  color: white;
+  background-color: #660000;
+  width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px
+}
+
+
+.intro {
+    background-color: #1c1e20;
+    text-align: center;
+    display: block;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.city {
+    background-color: #7C6D61;
+    text-align: center;
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    font-weight: 500
+}
+
+.parameters {
+  text-align: center;
+}
+
+.parameters p {
+    background-color: #B6AAA0;
+    display: inline-block;
+    width: 200px;
+    border-radius: 5px;
+    color: whie;
+    font-size: 15px;
+    font-weight: 600
+}
+
+

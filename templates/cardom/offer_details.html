@@ -7,15 +7,17 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="title">Szczegóły oferty</div></br>
-            <table class="table_center">
-            <tr><th>{{offer.category}} NA {{offer.get_transaction_display}}</th></tr>
-            <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td></tr>
-            <tr><td><p>{{offer.floor_space}}m2</p><p>{{offer.get_transaction_display}}</p><p>{{offer.price}}zł </p></td></tr>
-            <tr><td>{{ offer.description }}</td></tr>
-            </table>
-            </br>
+
+            <div class="intro"><strong>{{offer.category}} NA {{offer.get_transaction_display}}</strong></div></br>
+            <div class="city">{{offer.city}} ({{offer.district}})</div></br>
+            <div class="parameters">
+                <p>Powierzchnia: {{offer.floor_space}}m2</p>
+                <p>Liczba pokoi: {{offer.nb_rooms}}</p>
+                <p>Balkon: {{offer.balcony|yesno:"Tak,Nie"}}</p>
+            </div>
+            <div class="parameters"><p>Cena: {{offer.price}}zł</p></div></br>
+
 
         <div class="row">
             <div class="col-xs-6 col-md-3">
@@ -31,5 +33,6 @@
             </div>
             {% endfor %}
         </div>
+        <div class="description">{{ offer.description }}</div>
 
 {% endblock %}
