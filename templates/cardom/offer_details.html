@@ -19,20 +19,20 @@
             <div class="parameters"><p>Cena: {{offer.price}}zł</p></div></br>
 
 
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-              <a href="#" class="thumbnail">
-                <img src="{{ offer.main_image.url }}" height="120" width="220" alt="error">
-              </a>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                  <a href="#" class="thumbnail">
+                    <img src="{{ offer.main_image.url }}" height="120" width="220" alt="error">
+                  </a>
+                </div>
+                {% for pic in gallery %}
+                <div class="col-xs-6 col-md-3">
+                  <a href="#" class="thumbnail">
+                    <img src="{{ pic.images.url }}" height="120" width="220" alt="error">
+                  </a>
+                </div>
+                {% endfor %}
             </div>
-            {% for pic in gallery %}
-            <div class="col-xs-6 col-md-3">
-              <a href="#" class="thumbnail">
-                <img src="{{ pic.images.url }}" height="120" width="220" alt="error">
-              </a>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="description">{{ offer.description }}</div>
+            <div class="description">{{ offer.description }}</div>
 
 {% endblock %}
