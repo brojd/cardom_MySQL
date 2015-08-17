@@ -14,5 +14,10 @@ class OfferSort(forms.Form):
     )
     
     sort_offer = forms.ChoiceField(choices=SORT_CHOICES, label="Sortuj według", required=False)
+    
+
+class ContactForm(forms.Form):
+    from_email = forms.EmailField(required=True)
+    text = forms.TextInput(required=True)
         
     
