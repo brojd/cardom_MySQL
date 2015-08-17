@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Category, Offer, OfferImage
 from .filters import OfferFilter
-from .forms import OfferSort
+from .forms import OfferSort, ContactForm
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 def index(request):
@@ -178,10 +179,24 @@ def offer_details(request, pk):
     offer = get_object_or_404(Offer, pk=pk)
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
     gallery = OfferImage.objects.filter(offer__pk=pk)
+    
+    form = ContactForm()
+    if request.method=="POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            subject = form.cleaned_data['subject']
+            try:
+                send_mail(subject, message, from_email, ['dominik.broj@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse("Wprowadzono niepoprawne dane")
+    
     context_dict = {
         'offer': offer,
         'filter': f,
         'gallery': gallery,
+        'form': form,
         }
     return render(request, 'cardom/offer_details.html', context_dict)
 

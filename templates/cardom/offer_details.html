@@ -34,5 +34,13 @@
                 {% endfor %}
             </div>
             <div class="description">{{ offer.description }}</div>
+            
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <div class="form-actions">
+                  <button type="submit">Wyślij</button>
+                </div>
+            </form>
 
 {% endblock %}
