@@ -1,6 +1,7 @@
 {% extends 'cardom/base.html' %}
 
 {% load staticfiles %}
+{% load bootstrap %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'cardom/css/offer_details.css' %}">
@@ -33,14 +34,20 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="description">{{ offer.description }}</div>
-            
-            <form method="post">
-                {% csrf_token %}
-                {{ form }}
-                <div class="form-actions">
-                  <button type="submit">Wyślij</button>
+    
+            <div class="col-md-7">
+                <div class="description" >{{ offer.description }}</div>
+            </div>
+                
+            <div class="message_form">
+                <div class="col-md-5">
+                <form method="post" class="form-horizontal" >
+                    {% csrf_token %}
+                    {{ form|bootstrap_horizontal }}
+                    <div class="form-actions" >
+                      <button type="submit" id="send_button">Wyślij</button>
+                    </div>
+                </form>
                 </div>
-            </form>
-
+            </div>
 {% endblock %}

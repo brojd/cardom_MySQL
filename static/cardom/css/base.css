@@ -82,7 +82,7 @@ input, textarea, select {
   margin: 0px 0px 0px 0px;
 }
 
-.form-horizontal {
+#search_form {
   background-color: #ABABAB;
   font-family: "Times New Roman", Times, serif;
   font-weight: normal;

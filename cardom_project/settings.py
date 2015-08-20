@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'cardom',
     'django_filters',
+    'bootstrapform',
 )
 
 MIDDLEWARE_CLASSES = (
