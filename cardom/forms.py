@@ -18,8 +18,8 @@ class OfferSort(forms.Form):
 
 class ContactForm(forms.Form):
     from_email = forms.EmailField(required=True, label="Twój E-mail")
-    subject = forms.CharField(required=True, widget=forms.TextInput, label="Temat")
-    message = forms.CharField(required=True, widget=forms.Textarea, label="Wiadomość")
+    subject = forms.CharField(required=True, widget=forms.TextInput, label="Temat", initial="Proszę o kontakt")
+    message = forms.CharField(required=True, widget=forms.Textarea, label="Wiadomość", initial="Jestem zainteresowany ofertą")
     
         
     
