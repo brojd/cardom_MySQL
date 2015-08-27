@@ -3,6 +3,24 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'cardom/css/contact.css' %}">
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+        function initMap() {
+          var myLatLng = {lat: 50.344691, lng: 18.211907};
+        
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: myLatLng
+          });
+        
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+          });
+        }
+      google.maps.event.addDomListener(window, 'load', initMap);
+</script>
 {% endblock %}
 
 {% block content %}
@@ -26,6 +44,7 @@
 
 
 <img class="media-object" src="{% static 'cardom/images/biuro.jpg' %}" alt="error"/>
-
-
+</br>
+<div id="map"></div>
+</br>
 {% endblock %}

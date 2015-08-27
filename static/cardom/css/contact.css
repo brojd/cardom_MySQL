@@ -17,3 +17,10 @@
   width: 50%;
   margin: 0 auto
 }
+
+#map {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: 0 auto
+}
