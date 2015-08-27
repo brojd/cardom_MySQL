@@ -1,5 +1,31 @@
 {% extends 'cardom/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'cardom/css/contact.css' %}">
+{% endblock %}
 
 {% block content %}
-This is the contact page.
+<div class="contact_info">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>ZAPRASZAMY</strong></h3>
+      </div>
+      <div class="panel-body">
+        Kędzierzyn-Koźle</br>
+        Pl. Wolności 6-7</br>
+        ( I piętro )</br>
+        </br>
+        tel. (77) 483 72 04</br>
+        kom. 602 379 056</br>
+        </br>
+        biuro@cardom.pl</br>
+      </div>
+    </div>
+</div>
+
+
+<img class="media-object" src="{% static 'cardom/images/biuro.jpg' %}" alt="error"/>
+
+
 {% endblock %}

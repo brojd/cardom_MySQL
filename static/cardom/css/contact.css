@@ -1,0 +1,19 @@
+.contact_info {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  text-align: center
+}
+
+.picture {
+  display: block;
+  heigth: 50px;
+  width: 50px
+}
+
+.media-object {
+  display: block;
+  heigth: 50%;
+  width: 50%;
+  margin: 0 auto
+}
