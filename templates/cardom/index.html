@@ -12,12 +12,15 @@
 <div class="title">Najnowsze oferty</div></br>
 
 {% for offer in latest_offers %}
-    <table class="table_center">
-        <tr><th>{{offer.category}}</th></tr>
-        <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td></tr>
-        <tr><td><img src="{{ offer.main_image.url }}" height="180" width="270" alt="error"></td></tr>
-        <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
-    </table><br />
+        <a href="{% url 'details' pk=offer.pk %}">
+            <table class="table_center">
+                <tr><th>{{offer.category}}</th></tr>
+                <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td></tr>
+                <tr><td><img src="{{ offer.main_image.url }}" height="180" width="270" alt="error"></td></tr>
+                <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
+            </table>
+        </a>
+    <br />
 {% endfor %}
 </div>
 
@@ -25,12 +28,15 @@
 <div class="title">Promowane oferty</div></br>
 
 {% for offer in promoted_offers %}
-    <table class="table_center">
-        <tr><th>{{offer.category}}</th></tr>
-        <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td></tr>
-        <tr><td><img src="{{ offer.main_image.url }}" height="180" width="270" alt="error"></td></tr>
-        <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
-    </table><br />
+    <a href="{% url 'details' pk=offer.pk %}">
+        <table class="table_center">
+            <tr><th>{{offer.category}}</th></tr>
+            <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td></tr>
+            <tr><td><img src="{{ offer.main_image.url }}" height="180" width="270" alt="error"></td></tr>
+            <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
+        </table>
+    </a>
+<br />
 {% endfor %}
 
 </div>
