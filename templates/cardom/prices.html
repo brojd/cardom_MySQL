@@ -1,5 +1,117 @@
 {% extends 'cardom/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'cardom/css/prices.css' %}">
+{% endblock %}
 
 {% block content %}
-This is the prices page.
+<div class="title">Cennik</div></br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    W dobie internetu nie ma problemu z ogłoszeniem oferty  sprzedaży nieruchomości lub znalezieniem oferty o zadanych parametrach.</br>
+    </br>
+    <strong>JEDNAK  CZY … </br></strong>
+    </br>
+    Oferując samodzielnie nieruchomość jesteś pewien, że:</br>
+    - cena będzie dla Ciebie najwyższa z możliwych do uzyskania</br>
+    - zawarte umowy i ich zapisy będą prawnie skuteczne</br>
+    - wiesz kiedy i jakie zapłacisz podatki, opłaty, kary za ich nieuiszczenie  </br>
+    - masz czas, wiedzę i doświadczenie, aby wszystko sprawdzić, przygotować </br>
+    </br>
+    Kupując samodzielnie nieruchomość jesteś pewien, że:</br>
+    -  wyszukana oferta jest dla Ciebie optymalną (w porównaniu z innymi)</br>
+    -  potrafisz sprawdzić i  przewidzieć wszystkie okoliczności mogące mieć wpływ na ważność i bezpieczeństwo kontraktu</br>
+    -  uzgodnione warunki i zapisy w umowach będą Ci gwarantowały bezpieczeństwo np. zakupu</br>
+    -  masz czas, wiedzę i doświadczenie, aby wszystko sprawdzić, przygotować </br>
+    </br>
+    <strong>???</strong>
+    </br>
+    </br>
+     Jeżeli nie interesuje Państwa usługa pełnego, tradycyjnego pośrednictwa,</br>
+     jeżeli mają Państwo wybraną nieruchomość bądź kontrahenta, oferujemy bogatą ofertę usług,</br>
+     skorzystanie z których może zaoszczędzić Państwu sporo cennego czasu, a przede wszystkim</br>
+     zapewnić sprawne i bezpieczne przeprowadzenie transakcji</br>
+    </br>
+     *** Poniżej przedstawiamy cennik wybranych usług: </br>
+    </br>
+    <div class="price_list">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Dla sprzedających</th>
+            <th>Od (zł)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Oszacowanie poziomu ceny możliwej do uzyskania przy sprzedaży.</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>Analiza przygotowania nieruchomości pod względem prawnym i formalnym do transakcji,
+            zweryfikowanie stanu prawnego nieruchomości</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>Analiza zobowiązań sprzedającego dot. podatków, opłat, zgłoszeń związanych ze sprzedażą</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>Przygotowanie dokumentów niezbędnych do przeprowadzenia transakcji</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>Przygotowanie umowy przedwstępnej, rezerwacyjnej, ofertowej</td>
+            <td>600</td>
+          </tr>
+          <tr>
+            <td>Kompleksowa obsługa transakcji  – od oceny prawno-formalnego  przygotowania nieruchomości  do transakcji ,
+            poprzez przygotowanie dokumentów, umów, pomoc w przygotowaniu i organizacji umowy notarialnej sprzedaży nieruchomości</td>
+            <td>1200</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th>Dla sprzedających</th>
+            <th>Od (zł)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Analiza przygotowania nieruchomości pod względem prawnym i formalnym do
+            transakcji - zweryfikowanie stanu prawnego nieruchomości, ocena ewentualnych
+            zagrożeń ważności kontraktu i sposobu ich wyeliminowania</td>
+            <td>600</td>
+          </tr>
+        <tr>
+            <td>Przygotowanie dokumentów niezbędnych do przeprowadzenia transakcji</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>Przygotowanie umowy przedwstępnej, rezerwacyjnej, ofertowej</td>
+            <td>600</td>
+          </tr>
+          <tr>
+            <td>Kompleksowa obsługa transakcji  – od oceny prawno-formalnego  przygotowania
+            nieruchomości  do transakcji , poprzez przygotowanie dokumentów, umów,
+            pomoc w przygotowaniu i organizacji umowy notarialnej sprzedaży nieruchomości</td>
+            <td>1200</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    </br>
+     Podane ceny są cenami netto  (doliczany podatek VAT w stawce 23 % od wartości usługi). 
+    </br>
+    Usługa świadczona jest na podstawie umowy w formie pisemnej, indywidualnie uzgadnianej z klientem.
+    </br>
+     Standardowa wysokość prowizji przy pełnym pośrednictwie – 2% wartości kontraktu (netto)
+    </br>
+     W celu zlecenia nam pośrednictwa, lub usługi doradztwa prosimy o kontakt: </br>
+    </br>
+    <strong>tel. 77/ 483 72 04,  kom. 602 379 056,   e-mail:  biuro@cardom.pl</strong>
+  </div>
+</div>
 {% endblock %}
