@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Category, Offer, OfferImage
 from .filters import OfferFilter
-from .forms import OfferSort, ContactForm
+from .forms import OfferSort, ContactForm, PublishForm
 from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
@@ -161,7 +161,26 @@ def career(request):
 
 def publish_offer(request):
     f = OfferFilter(request.GET, queryset=Offer.objects.all())
-    return render(request, 'cardom/publish_offer.html', {'filter': f})
+    
+    form = PublishForm()
+    if request.method=="POST":
+        form = PublishForm(request.POST)
+        if form.is_valid():
+            from_email = "E-mail" + form.cleaned_data['from_email']
+            phone_nb = "Numer telefonu" + form.cleaned_data['phone_nb']
+            category = "Rodzaj obiektu" + form.cleaned_data['category']
+            location = "Lokalizacja" + form.cleaned_data['location']
+            price = "Cena" + form.cleaned_data['price']
+            description = "Dodatkowy opis" + forms.cleaned_data['description']
+            try:
+                send_mail(from_email, phone_nb, category, location, price, description, ['dominik.broj@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse("Wprowadzono niepoprawne dane")
+    context_dict = {
+        'filter': f,
+        'form': form
+    }
+    return render(request, 'cardom/publish_offer.html', context_dict)
 
 def credits(request):
     f = OfferFilter(request.GET, queryset=Offer.objects.all())

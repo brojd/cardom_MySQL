@@ -47,14 +47,14 @@
     display: inline-block;
     width: 200px;
     border-radius: 5px;
-    color: whie;
+    color: white;
     font-size: 15px;
     font-weight: 600
 }
 
 #send_button {
   display: block;
-      margin-left: auto;
+  margin-left: auto;
 }
 
 .message_form {
