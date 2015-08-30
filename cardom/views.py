@@ -174,7 +174,7 @@ def publish_offer(request):
             location = "Lokalizacja" + form.cleaned_data['location']
             price = "Cena" + form.cleaned_data['price']
             description = "Dodatkowy opis" + form.cleaned_data['description']
-            message = phone_nb + category + location + price + description
+            message = phone_nb + "\n" + category + "\n" + location + "\n" + price + "\n" + description
             try:
                 send_mail(subject, from_email, message, ['dominik.broj@gmail.com'])
             except BadHeaderError:
