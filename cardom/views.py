@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Category, Offer, OfferImage
@@ -166,14 +167,16 @@ def publish_offer(request):
     if request.method=="POST":
         form = PublishForm(request.POST)
         if form.is_valid():
+            subject = "Zgłoszenie oferty"
             from_email = "E-mail" + form.cleaned_data['from_email']
             phone_nb = "Numer telefonu" + form.cleaned_data['phone_nb']
             category = "Rodzaj obiektu" + form.cleaned_data['category']
             location = "Lokalizacja" + form.cleaned_data['location']
             price = "Cena" + form.cleaned_data['price']
-            description = "Dodatkowy opis" + forms.cleaned_data['description']
+            description = "Dodatkowy opis" + form.cleaned_data['description']
+            message = phone_nb + category + location + price + description
             try:
-                send_mail(from_email, phone_nb, category, location, price, description, ['dominik.broj@gmail.com'])
+                send_mail(subject, from_email, message, ['dominik.broj@gmail.com'])
             except BadHeaderError:
                 return HttpResponse("Wprowadzono niepoprawne dane")
     context_dict = {
