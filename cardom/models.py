@@ -35,21 +35,21 @@ class Offer(models.Model):
     
     PROVINCE_CHOICES = (
         ('OPO', 'OPOLSKIE'),
-        ('DLN', 'DOLNOSLASKIE'),
-        ('SLK', 'SLASKIE'),
+        ('DLN', 'DOLNOŚLĄSKIE'),
+        ('SLK', 'ŚLĄSKIE'),
         ('PDK', 'PODKARPACKIE'),
         ('LBK', 'LUBUSKIE'),
         ('LBL', 'LUBELSKIE'),
-        ('MLP', 'MALOPOLSKIE'),
+        ('MLP', 'MAŁOPOLSKIE'),
         ('KJP', 'KUJAWSKO-POMORSKIE'),
         ('POM', 'POMORSKIE'),
         ('ZPM', 'ZACHODNIO-POMORSKIE'),
-        ('LDZ', 'LODZKIE'),
+        ('LDZ', 'ŁÓDZKIE'),
         ('MZW', 'MAZOWIECKIE'),
         ('PDL', 'PODLASKIE'),
         ('WLK', 'WIELKOPOLSKIE'),
-        ('SWK', 'SWIETOKRZYSKIE'),
-        ('WRM', 'WARMINSKO-MAZURSKIE'),
+        ('SWK', 'ŚWIĘTOKRZYSKIE'),
+        ('WRM', 'WARMIŃSKO-MAZURSKIE'),
     )
     
     
