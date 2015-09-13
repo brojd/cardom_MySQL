@@ -103,3 +103,7 @@ input, textarea, select {
 .searchbox th {
   padding-top: 8px
 }
+
+#main_image {
+  width: 286px
+}
