@@ -11,9 +11,7 @@
 #-*- coding: utf-16 -*-
 
 from __future__ import unicode_literals
-
 from django.db import models
-
 
 class Agents(models.Model):
     id_other = models.IntegerField()
@@ -249,9 +247,15 @@ class InvestmentsBuildings(models.Model):
 
 
 class Offers(models.Model):
+    
+    RENT_CHOICES = (
+        (0, 'Sprzedaż'),
+        (1, 'Wynajem')
+    )
+        
     id_other = models.IntegerField()
     object = models.CharField(max_length=20)
-    rent = models.IntegerField()
+    rent = models.IntegerField(choices=RENT_CHOICES, default=0)
     symbol = models.CharField(max_length=20)
     original = models.IntegerField()
     province = models.CharField(max_length=50, blank=True, null=True)
@@ -276,8 +280,10 @@ class Offers(models.Model):
     creation_date = models.DateField()
     modification_date = models.DateField()
 
+
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'offers'
 
 
@@ -296,14 +302,23 @@ class OffersPhotos(models.Model):
         db_table = 'offers_photos'
 
 
+class Properties(models.Model):
+    name = models.CharField(max_length=100)
+    date = models.DateField()
+
+    class Meta:
+        managed = False
+        db_table = 'properties'
+        
+        
 class OffersProperties(models.Model):
-    offers_id = models.IntegerField()
-    properties_id = models.IntegerField()
+    offers_id = models.ForeignKey('Offers')
+    properties_id = models.ForeignKey('Properties')
     value = models.TextField()
     set = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'offers_properties'
 
 
@@ -337,14 +352,6 @@ class OffersRoomsSets(models.Model):
         managed = False
         db_table = 'offers_rooms_sets'
 
-
-class Properties(models.Model):
-    name = models.CharField(max_length=100)
-    date = models.DateField()
-
-    class Meta:
-        managed = False
-        db_table = 'properties'
 
 
 class Settings(models.Model):

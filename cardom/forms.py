@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
-from models import Offer
+from models import Offers
 
 class OfferSort(forms.Form):
     SORT_CHOICES = (

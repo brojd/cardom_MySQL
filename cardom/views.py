@@ -1,21 +1,19 @@
 #-*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-#from .models import Category, Offer, OfferImage
+from .models import Offers, OffersProperties, Properties
 from .filters import OfferFilter
 from .forms import OfferSort, ContactForm, PublishForm
 from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 def index(request):
-    category_list = Category.objects.all
-    latest_offers = Offer.objects.order_by('-pub_date')[:10]
-    promoted_offers = Offer.objects.filter(promoted=True).order_by('-pub_date')[:10]
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    latest_offers = Offers.objects.order_by('-creation_date')[:10]
+    promoted_offers = Offers.objects.filter(offersproperties__value='True').order_by('-creation_date')[:10]
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
 
     
     context_dict = {
-        'categories': category_list,
         'latest_offers': latest_offers,
         'promoted_offers': promoted_offers,
         'filter': f,
