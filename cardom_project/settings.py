@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'cardom_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': '08384068_doniu',
+        'PASSWORD': 'doniu123',
+        'HOST': 'cardom.pl',
+        'NAME': '08384068_doniu',
+        'PORT': ''
     }
 }
 

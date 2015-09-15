@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import Category, Offer, OfferImage
+#from .models import Category, Offer, OfferImage
 from .filters import OfferFilter
 from .forms import OfferSort, ContactForm, PublishForm
 from django.core.mail import send_mail, BadHeaderError

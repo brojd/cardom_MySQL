@@ -1,0 +1,440 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('cardom', '0013_auto_20150723_2017'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='Agents',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_other', models.IntegerField()),
+                ('name', models.CharField(max_length=50)),
+                ('phone', models.CharField(max_length=50, null=True, blank=True)),
+                ('cell', models.CharField(max_length=50, null=True, blank=True)),
+                ('email', models.CharField(max_length=50, null=True, blank=True)),
+                ('departments_id', models.IntegerField()),
+                ('jabber_login', models.CharField(max_length=20, null=True, blank=True)),
+                ('licence_no', models.CharField(max_length=50, null=True, blank=True)),
+                ('responsible_name', models.CharField(max_length=50, null=True, blank=True)),
+                ('responsible_licence_no', models.CharField(max_length=50, null=True, blank=True)),
+            ],
+            options={
+                'db_table': 'agents',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomAdmin',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('login', models.CharField(max_length=50)),
+                ('pass_field', models.CharField(max_length=50, db_column='pass')),
+            ],
+            options={
+                'db_table': 'cardom_admin',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomAds',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('matka', models.IntegerField()),
+                ('file', models.CharField(max_length=50)),
+                ('link', models.CharField(max_length=200)),
+                ('date', models.DateTimeField()),
+                ('publikuj', models.CharField(max_length=1)),
+            ],
+            options={
+                'db_table': 'cardom_ads',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomAudio',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('matka', models.IntegerField()),
+                ('name', models.TextField()),
+                ('date', models.DateTimeField()),
+                ('file', models.CharField(max_length=50)),
+            ],
+            options={
+                'db_table': 'cardom_audio',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomContent',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nr', models.IntegerField()),
+                ('name', models.TextField()),
+                ('lead', models.TextField()),
+                ('content', models.TextField()),
+                ('kind', models.CharField(max_length=4)),
+                ('date', models.DateTimeField()),
+                ('date_mod', models.DateTimeField(null=True, blank=True)),
+            ],
+            options={
+                'db_table': 'cardom_content',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomGallery',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('matka', models.IntegerField()),
+                ('name', models.TextField()),
+                ('date', models.DateTimeField()),
+                ('file', models.CharField(max_length=50)),
+            ],
+            options={
+                'db_table': 'cardom_gallery',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomInfo',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('content', models.TextField()),
+                ('publikuj', models.CharField(max_length=1)),
+            ],
+            options={
+                'db_table': 'cardom_info',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomInfo2',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('matka', models.IntegerField()),
+                ('name', models.TextField()),
+                ('content', models.TextField()),
+                ('date', models.DateTimeField()),
+                ('publikuj', models.CharField(max_length=1)),
+            ],
+            options={
+                'db_table': 'cardom_info2',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomMenu',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_menu', models.IntegerField()),
+                ('name', models.TextField()),
+                ('url', models.CharField(max_length=200)),
+                ('date', models.DateTimeField()),
+                ('main', models.CharField(max_length=1, null=True, blank=True)),
+                ('kind', models.CharField(max_length=5)),
+                ('kolejnosc', models.IntegerField()),
+                ('autor', models.CharField(max_length=60)),
+                ('publikuj', models.CharField(max_length=1)),
+            ],
+            options={
+                'db_table': 'cardom_menu',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomNews',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('matka', models.IntegerField()),
+                ('name', models.TextField()),
+                ('lead', models.TextField()),
+                ('content', models.TextField()),
+                ('date', models.DateTimeField()),
+                ('file', models.CharField(max_length=50)),
+            ],
+            options={
+                'db_table': 'cardom_news',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomRss',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.TextField()),
+                ('link', models.TextField()),
+            ],
+            options={
+                'db_table': 'cardom_rss',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='CardomWideo',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('matka', models.IntegerField()),
+                ('name', models.TextField()),
+                ('date', models.DateTimeField()),
+                ('file', models.CharField(max_length=50)),
+                ('kod', models.TextField()),
+            ],
+            options={
+                'db_table': 'cardom_wideo',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='Departments',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_other', models.IntegerField()),
+                ('name', models.CharField(max_length=255)),
+                ('address', models.CharField(max_length=150, null=True, blank=True)),
+                ('city', models.CharField(max_length=100, null=True, blank=True)),
+                ('postcode', models.CharField(max_length=6, null=True, blank=True)),
+                ('nip', models.CharField(max_length=20, null=True, blank=True)),
+                ('province', models.CharField(max_length=50)),
+                ('www', models.CharField(max_length=150, null=True, blank=True)),
+                ('phone', models.CharField(max_length=150, null=True, blank=True)),
+                ('email', models.CharField(max_length=150, null=True, blank=True)),
+                ('fax', models.CharField(max_length=150, null=True, blank=True)),
+                ('remarks', models.TextField(null=True, blank=True)),
+            ],
+            options={
+                'db_table': 'departments',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='Errors',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('date', models.DateTimeField()),
+                ('method', models.CharField(max_length=100)),
+                ('message', models.CharField(max_length=1000)),
+            ],
+            options={
+                'db_table': 'errors',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='Investments',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_other', models.IntegerField()),
+                ('no', models.IntegerField()),
+                ('number', models.CharField(max_length=50)),
+                ('name', models.CharField(max_length=200)),
+                ('description', models.TextField(null=True, blank=True)),
+                ('short_description', models.TextField(null=True, blank=True)),
+                ('contact', models.TextField(null=True, blank=True)),
+                ('map_marker', models.CharField(max_length=500, null=True, blank=True)),
+                ('garage', models.IntegerField()),
+                ('pool', models.IntegerField(null=True, blank=True)),
+                ('terrace', models.IntegerField(null=True, blank=True)),
+                ('air_conditioning', models.IntegerField(null=True, blank=True)),
+                ('house_project', models.IntegerField(null=True, blank=True)),
+                ('special', models.IntegerField(null=True, blank=True)),
+                ('creation_date', models.DateField(null=True, blank=True)),
+                ('due_date', models.DateField(null=True, blank=True)),
+                ('total_area', models.DecimalField(max_digits=18, decimal_places=2)),
+                ('gross_volume', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('area_from', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('area_to', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('price_from', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('price_to', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('pricem2_from', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('pricem2_to', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('floor_from', models.IntegerField(null=True, blank=True)),
+                ('floor_to', models.IntegerField(null=True, blank=True)),
+                ('rooms_no_from', models.IntegerField(null=True, blank=True)),
+                ('rooms_no_to', models.IntegerField(null=True, blank=True)),
+                ('country', models.CharField(max_length=50, null=True, blank=True)),
+                ('province', models.CharField(max_length=50, null=True, blank=True)),
+                ('district', models.CharField(max_length=50, null=True, blank=True)),
+                ('location', models.CharField(max_length=50, null=True, blank=True)),
+                ('quarter', models.CharField(max_length=50, null=True, blank=True)),
+                ('region', models.CharField(max_length=50, null=True, blank=True)),
+                ('street', models.CharField(max_length=50, null=True, blank=True)),
+                ('category', models.CharField(max_length=100, null=True, blank=True)),
+                ('departments_id', models.IntegerField()),
+            ],
+            options={
+                'db_table': 'investments',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='InvestmentsBuildings',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_other', models.IntegerField()),
+                ('investments_id', models.IntegerField()),
+                ('symbol', models.CharField(max_length=50)),
+                ('name', models.CharField(max_length=200)),
+                ('due_date', models.DateField(null=True, blank=True)),
+                ('description', models.CharField(max_length=1000, null=True, blank=True)),
+                ('floors_no', models.IntegerField(null=True, blank=True)),
+                ('area', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+            ],
+            options={
+                'db_table': 'investments_buildings',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='Offers',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_other', models.IntegerField()),
+                ('object', models.CharField(max_length=20)),
+                ('rent', models.IntegerField()),
+                ('symbol', models.CharField(max_length=20)),
+                ('original', models.IntegerField()),
+                ('province', models.CharField(max_length=50, null=True, blank=True)),
+                ('district', models.CharField(max_length=50, null=True, blank=True)),
+                ('location', models.CharField(max_length=50, null=True, blank=True)),
+                ('quarter', models.CharField(max_length=50, null=True, blank=True)),
+                ('region', models.CharField(max_length=50, null=True, blank=True)),
+                ('street', models.CharField(max_length=50, null=True, blank=True)),
+                ('floor', models.CharField(max_length=200, null=True, blank=True)),
+                ('price', models.DecimalField(max_digits=18, decimal_places=2)),
+                ('price_square', models.DecimalField(max_digits=18, decimal_places=2)),
+                ('rooms_no', models.IntegerField()),
+                ('area', models.DecimalField(max_digits=18, decimal_places=2)),
+                ('latitude', models.DecimalField(null=True, max_digits=18, decimal_places=6, blank=True)),
+                ('longitude', models.DecimalField(null=True, max_digits=18, decimal_places=6, blank=True)),
+                ('building_technology', models.CharField(max_length=200, null=True, blank=True)),
+                ('construction_material', models.CharField(max_length=200, null=True, blank=True)),
+                ('construction_status', models.CharField(max_length=200, null=True, blank=True)),
+                ('building_type', models.CharField(max_length=200, null=True, blank=True)),
+                ('agents_id', models.IntegerField()),
+                ('investments_buildings_id', models.IntegerField(null=True, blank=True)),
+                ('creation_date', models.DateField()),
+                ('modification_date', models.DateField()),
+            ],
+            options={
+                'db_table': 'offers',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='OffersPhotos',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('id_other', models.IntegerField()),
+                ('offers_id', models.IntegerField(null=True, blank=True)),
+                ('investments_id', models.IntegerField(null=True, blank=True)),
+                ('filename', models.CharField(max_length=50)),
+                ('description', models.CharField(max_length=50)),
+                ('order', models.IntegerField()),
+                ('type', models.CharField(max_length=20)),
+                ('intro', models.IntegerField(null=True, blank=True)),
+            ],
+            options={
+                'db_table': 'offers_photos',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='OffersProperties',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('offers_id', models.IntegerField()),
+                ('properties_id', models.IntegerField()),
+                ('value', models.TextField()),
+                ('set', models.IntegerField()),
+            ],
+            options={
+                'db_table': 'offers_properties',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='OffersRooms',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('offers_id', models.IntegerField()),
+                ('kind', models.CharField(max_length=25)),
+                ('order', models.IntegerField(null=True, blank=True)),
+                ('area', models.CharField(max_length=200, null=True, blank=True)),
+                ('level', models.CharField(max_length=20, null=True, blank=True)),
+                ('type', models.CharField(max_length=100, null=True, blank=True)),
+                ('height', models.DecimalField(null=True, max_digits=18, decimal_places=2, blank=True)),
+                ('kitchen_type', models.CharField(max_length=100, null=True, blank=True)),
+                ('number', models.IntegerField(null=True, blank=True)),
+                ('glaze', models.CharField(max_length=100, null=True, blank=True)),
+                ('window_view', models.CharField(max_length=100, null=True, blank=True)),
+                ('description', models.CharField(max_length=1000, null=True, blank=True)),
+                ('floors_state', models.CharField(max_length=100, null=True, blank=True)),
+                ('room_type', models.CharField(max_length=100, null=True, blank=True)),
+            ],
+            options={
+                'db_table': 'offers_rooms',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='OffersRoomsSets',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('offers_rooms_id', models.IntegerField()),
+                ('name', models.CharField(max_length=20)),
+                ('value', models.CharField(max_length=200)),
+            ],
+            options={
+                'db_table': 'offers_rooms_sets',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='Properties',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=100)),
+                ('date', models.DateField()),
+            ],
+            options={
+                'db_table': 'properties',
+                'managed': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='Settings',
+            fields=[
+                ('key_name', models.CharField(max_length=100, serialize=False, primary_key=True)),
+                ('value', models.CharField(max_length=200)),
+            ],
+            options={
+                'db_table': 'settings',
+                'managed': False,
+            },
+        ),
+        migrations.RemoveField(
+            model_name='offer',
+            name='category',
+        ),
+        migrations.RemoveField(
+            model_name='offerimage',
+            name='offer',
+        ),
+        migrations.DeleteModel(
+            name='Category',
+        ),
+        migrations.DeleteModel(
+            name='Offer',
+        ),
+        migrations.DeleteModel(
+            name='OfferImage',
+        ),
+    ]
