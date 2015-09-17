@@ -1,15 +1,15 @@
 #-*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import Offers, OffersProperties, Properties
+from .models import Offers, OffersProperties, Properties, OffersPhotos
 from .filters import OfferFilter
 from .forms import OfferSort, ContactForm, PublishForm
 from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 def index(request):
-    latest_offers = Offers.objects.order_by('-creation_date')[:10]
-    promoted_offers = Offers.objects.filter(offersproperties__value='True').order_by('-creation_date')[:10]
+    latest_offers = Offers.objects.order_by('-creation_date').select_related()[:5]
+    promoted_offers = Offers.objects.filter(offersproperties__value="True").order_by('?')[:5]
     f = OfferFilter(request.GET, queryset=Offers.objects.all())
 
     

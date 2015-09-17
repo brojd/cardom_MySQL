@@ -265,10 +265,10 @@ class Offers(models.Model):
     region = models.CharField(max_length=50, blank=True, null=True)
     street = models.CharField(max_length=50, blank=True, null=True)
     floor = models.CharField(max_length=200, blank=True, null=True)
-    price = models.DecimalField(max_digits=18, decimal_places=2)
-    price_square = models.DecimalField(max_digits=18, decimal_places=2)
+    price = models.DecimalField(max_digits=18, decimal_places=0)
+    price_square = models.DecimalField(max_digits=18, decimal_places=0)
     rooms_no = models.IntegerField()
-    area = models.DecimalField(max_digits=18, decimal_places=2)
+    area = models.DecimalField(max_digits=18, decimal_places=0)
     latitude = models.DecimalField(max_digits=18, decimal_places=6, blank=True, null=True)
     longitude = models.DecimalField(max_digits=18, decimal_places=6, blank=True, null=True)
     building_technology = models.CharField(max_length=200, blank=True, null=True)
@@ -279,8 +279,9 @@ class Offers(models.Model):
     investments_buildings_id = models.IntegerField(blank=True, null=True)
     creation_date = models.DateField()
     modification_date = models.DateField()
-
-
+    
+    def first_offersphotos(self):
+        return self.offersphotos_set.first()
 
     class Meta:
         managed = True
@@ -289,7 +290,7 @@ class Offers(models.Model):
 
 class OffersPhotos(models.Model):
     id_other = models.IntegerField()
-    offers_id = models.IntegerField(blank=True, null=True)
+    offers_id = models.ForeignKey('Offers', null=True)
     investments_id = models.IntegerField(blank=True, null=True)
     filename = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
@@ -298,7 +299,7 @@ class OffersPhotos(models.Model):
     intro = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'offers_photos'
 
 
