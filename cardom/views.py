@@ -22,8 +22,8 @@ def index(request):
     return render(request, 'cardom/index.html', context_dict)
 
 def flats(request):
-    flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('-creation_date')
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     if request.method=="GET":
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')

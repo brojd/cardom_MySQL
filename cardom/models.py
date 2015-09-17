@@ -282,6 +282,9 @@ class Offers(models.Model):
     
     def first_offersphotos(self):
         return self.offersphotos_set.first()
+    
+    def description(self):
+        return self.offersproperties_set.filter(value=11)
 
     class Meta:
         managed = True
