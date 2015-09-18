@@ -28,17 +28,17 @@ def flats(request):
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
         if sortby_choice=='PDM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+            flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('-creation_date')
         elif sortby_choice=='PDR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+            flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('creation_date')
         elif sortby_choice=='PM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+            flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('-price')
         elif sortby_choice=='PR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+            flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('price')
         elif sortby_choice=='FLM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+            flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('-area')
         elif sortby_choice=='FLR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
+            flat_offers = Offers.objects.filter(object='Mieszkanie').order_by('area')
     context_dict = {
         'flat_offers': flat_offers,
         'filter': f,
@@ -47,8 +47,8 @@ def flats(request):
     return render(request, 'cardom/flats.html', context_dict)
 
 def houses(request):
-    house_offers = Offer.objects.filter(category__name='D').order_by('-pub_date')
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    house_offers = Offers.objects.filter(object='Dom').order_by('-creation_date')
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     if request.method=="GET":
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
