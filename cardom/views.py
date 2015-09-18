@@ -53,17 +53,17 @@ def houses(request):
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
         if sortby_choice=='PDM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+            house_offers = Offers.objects.filter(object='Dom').order_by('-creation_date')
         elif sortby_choice=='PDR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+            house_offers = Offers.objects.filter(object='Dom').order_by('creation_date')
         elif sortby_choice=='PM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+            house_offers = Offers.objects.filter(object='Dom').order_by('-price')
         elif sortby_choice=='PR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+            house_offers = Offers.objects.filter(object='Dom').order_by('price')
         elif sortby_choice=='FLM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+            house_offers = Offers.objects.filter(object='Dom').order_by('-area')
         elif sortby_choice=='FLR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
+            house_offers = Offers.objects.filter(object='Dom').order_by('area')
     context_dict = {
         'house_offers': house_offers,
         'filter': f,
@@ -72,23 +72,23 @@ def houses(request):
     return render(request, 'cardom/houses.html', context_dict)
 
 def lots(request):
-    lot_offers = Offer.objects.filter(category__name='DZ').order_by('-pub_date')
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    lot_offers = Offers.objects.filter(object='Dzialka').order_by('-creation_date')
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     if request.method=="GET":
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
         if sortby_choice=='PDM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+            lot_offers = Offers.objects.filter(object='Dzialka').order_by('-creation_date')
         elif sortby_choice=='PDR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+            lot_offers = Offers.objects.filter(object='Dzialka').order_by('creation_date')
         elif sortby_choice=='PM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+            lot_offers = Offers.objects.filter(object='Dzialka').order_by('-price')
         elif sortby_choice=='PR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+            lot_offers = Offers.objects.filter(object='Dzialka').order_by('price')
         elif sortby_choice=='FLM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+            lot_offers = Offers.objects.filter(object='Dzialka').order_by('-area')
         elif sortby_choice=='FLR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
+            lot_offers = Offers.objects.filter(object='Dzialka').order_by('area')
     context_dict = {
         'lot_offers': lot_offers,
         'filter': f,
@@ -97,23 +97,23 @@ def lots(request):
     return render(request, 'cardom/lots.html', context_dict)
 
 def locals(request):
-    local_offers = Offer.objects.filter(category__name='L').order_by('-pub_date')
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    local_offers = Offers.objects.filter(object='Lokal').order_by('-creation_date')
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     if request.method=="GET":
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
         if sortby_choice=='PDM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+            local_offers = Offers.objects.filter(object='Lokal').order_by('-creation_date')
         elif sortby_choice=='PDR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+            local_offers = Offers.objects.filter(object='Lokal').order_by('creation_date')
         elif sortby_choice=='PM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+            local_offers = Offers.objects.filter(object='Lokal').order_by('-price')
         elif sortby_choice=='PR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+            local_offers = Offers.objects.filter(object='Lokal').order_by('price')
         elif sortby_choice=='FLM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+            local_offers = Offers.objects.filter(object='Lokal').order_by('-area')
         elif sortby_choice=='FLR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
+            local_offers = Offers.objects.filter(object='Lokal').order_by('area')
     context_dict = {
         'local_offers': local_offers,
         'filter': f,
@@ -122,23 +122,23 @@ def locals(request):
     return render(request, 'cardom/locals.html', context_dict)
 
 def other_objects(request):
-    other_object_offers = Offer.objects.filter(category__name='O').order_by('-pub_date')
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('-creation_date')
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     if request.method=="GET":
         form = OfferSort(request.GET)
         sortby_choice = request.GET.get('sort_offer', '')
         if sortby_choice=='PDM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-pub_date')
+            other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('-creation_date')
         elif sortby_choice=='PDR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('pub_date')
+            other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('creation_date')
         elif sortby_choice=='PM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-price')
+            other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('-price')
         elif sortby_choice=='PR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('price')
+            other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('price')
         elif sortby_choice=='FLM':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('-floor_space')
+            other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('-area')
         elif sortby_choice=='FLR':
-            flat_offers = Offer.objects.filter(category__name='M').order_by('floor_space')
+            other_object_offers = Offers.objects.filter(object='Biurowiec').order_by('area')
     context_dict = {
         'other_object_offers': other_object_offers,
         'filter': f,
