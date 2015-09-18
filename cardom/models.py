@@ -12,6 +12,7 @@
 
 from __future__ import unicode_literals
 from django.db import models
+import re
 
 class Agents(models.Model):
     id_other = models.IntegerField()
@@ -284,7 +285,7 @@ class Offers(models.Model):
         return self.offersphotos_set.first()
     
     def description(self):
-        return self.offersproperties_set.filter(value=11)
+        return self.offersproperties_set.get(properties_id=11)
 
     class Meta:
         managed = True

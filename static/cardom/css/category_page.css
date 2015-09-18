@@ -1,3 +1,9 @@
+.table_center {
+  margin-left: auto;
+  margin-right: auto
+}
+
+
 .table_center th {
   text-align: center;
   background-color: #1c1e20;
@@ -9,9 +15,12 @@
   margin: 4px 8px;
 }
 
+
+
 .info {
     background-color: #ABABAB;
     font-weight: bold;
+    text-align: center
 }
 
 .location {
