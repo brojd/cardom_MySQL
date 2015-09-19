@@ -8,11 +8,10 @@
 # Also note: You'll have to insert the output of 'django-admin sqlcustom [app_label]'
 # into your database.
 
-#-*- coding: utf-16 -*-
+#-*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
 from django.db import models
-import re
 
 class Agents(models.Model):
     id_other = models.IntegerField()
@@ -250,16 +249,31 @@ class InvestmentsBuildings(models.Model):
 class Offers(models.Model):
     
     RENT_CHOICES = (
-        (0, 'Sprzedaż'),
-        (1, 'Wynajem')
+        (0, 'SPRZEDAŻ'),
+        (1, 'WYNAJEM')
     )
-        
+    
+    OBJECT_CHOICES = (
+        ('Mieszkanie', 'MIESZKANIE'),
+        ('Dom', 'DOM'),
+        ('Lokal', 'LOKAL'),
+        ('Dzialka', 'DZIAŁKA'),
+        ('Biurowiec', 'OBIEKT'),
+    )
+    
+    PROVINCE_CHOICES = (
+        ('OPOLSKIE', 'OPOLSKIE'),
+        ('DOLNOŚLĄSKIE', 'DOLNOŚLĄSKIE'),
+        ('ŚLĄSKIE', 'ŚLĄSKIE'),
+    )  
+    
+    
     id_other = models.IntegerField()
-    object = models.CharField(max_length=20)
+    object = models.CharField(max_length=50, choices=OBJECT_CHOICES, default='M')
     rent = models.IntegerField(choices=RENT_CHOICES, default=0)
     symbol = models.CharField(max_length=20)
     original = models.IntegerField()
-    province = models.CharField(max_length=50, blank=True, null=True)
+    province = models.CharField(max_length=50, choices=PROVINCE_CHOICES)
     district = models.CharField(max_length=50, blank=True, null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     quarter = models.CharField(max_length=50, blank=True, null=True)
@@ -280,6 +294,7 @@ class Offers(models.Model):
     investments_buildings_id = models.IntegerField(blank=True, null=True)
     creation_date = models.DateField()
     modification_date = models.DateField()
+    
     
     def first_offersphotos(self):
         return self.offersphotos_set.first()

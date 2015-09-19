@@ -17,15 +17,31 @@
 </form></br>
 
 {% for offer in filter %}
-        <a href="{% url 'details' pk=offer.pk %}">
-            <table class="table_center">
-                <tr><th>{{offer.category}}</th></tr>
-                <tr><td><div class="location">{{offer.city}} ({{offer.district}})</div></td><td rowspan="3">{{ offer.description }}</td></tr>
-                <tr><td><img src="{{ offer.main_image.url }}" height="120" width="220" alt="error"></td></tr>
-                <tr><td><div class="info"><p class="text-left">{{offer.floor_space}}m2</p><p class="text-center">{{offer.get_transaction_display}}</p><p class="text-right">{{offer.price}}zł </p></div></td></tr>
-            </table>
-        </a>
-        </br>
+    {% if forloop.first %}
+        <div class="row">
+    {% endif %}
+        <div class="info-block col-xs-12 col-sm-6">
+            
+                <table class="table_center"> 
+                    <tr><th>{{offer.object}}</th></tr>
+                    <tr><td><div class="location">{{offer.location}} ({{offer.province}})</div></td></tr>
+                    <tr><td><a href="{% url 'details' pk=offer.pk %}"><img src="http://cardom.pl/photos/offer_{{offer.id}}/{{offer.first_offersphotos.id}}_2.jpg" height="180" width="300" alt="error"></a></td></tr>
+                    <tr><td><a href="{% url 'details' pk=offer.pk %}"><div class="info">
+                    <p class="text-left">{{offer.area}}m2</p>
+                    <p class="text-center">{{offer.get_rent_display}}</p>
+                    <p class="text-right">{{offer.price}}zł </p></div></a></td></tr>
+                </table>
+            
+            </br>
+        </div>
+    {% if forloop.last %}
+        </div>
+    {% else %}
+        {% if forloop.counter|divisibleby:'2' %}
+            </div>
+            <div class="row">
+        {% endif %}
+    {% endif %}
 {% endfor %}
 </div>
 {% endblock %}
