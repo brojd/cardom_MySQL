@@ -200,9 +200,9 @@ def offer_list(request):
     return render(request, 'cardom/offer_list.html', context_dict)
 
 def offer_details(request, pk):
-    offer = get_object_or_404(Offer, pk=pk)
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
-    gallery = OfferImage.objects.filter(offer__pk=pk)
+    offer = get_object_or_404(Offers, pk=pk)
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
+    gallery = OffersPhotos.objects.filter(offers_id=offer.id)
     
     form = ContactForm()
     if request.method=="POST":

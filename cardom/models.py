@@ -269,7 +269,7 @@ class Offers(models.Model):
     
     
     id_other = models.IntegerField()
-    object = models.CharField(max_length=50, choices=OBJECT_CHOICES, default='M')
+    object = models.CharField(max_length=50, choices=OBJECT_CHOICES, default='M', verbose_name='MIESZKANIE')
     rent = models.IntegerField(choices=RENT_CHOICES, default=0)
     symbol = models.CharField(max_length=20)
     original = models.IntegerField()
@@ -301,6 +301,7 @@ class Offers(models.Model):
     
     def description(self):
         return self.offersproperties_set.get(properties_id=11)
+    
 
     class Meta:
         managed = True

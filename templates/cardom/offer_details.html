@@ -10,26 +10,21 @@
 {% block content %}
 <div class="title">Szczegóły oferty</div></br>
 
-            <div class="intro"><strong>{{offer.category}} NA {{offer.get_transaction_display}}</strong></div></br>
-            <div class="city">{{offer.city}} ({{offer.district}})</div></br>
+            <div class="intro"><strong>{{offer.object}} na {{offer.get_rent_display}}</strong></div></br>
+            <div class="city">{{offer.location}} ({{offer.province}})</div></br>
             <div class="parameters">
-                <p>Powierzchnia: {{offer.floor_space}}m2</p>
-                <p>Liczba pokoi: {{offer.nb_rooms}}</p>
+                <p>Powierzchnia: {{offer.area}}m2</p>
+                <p>Liczba pokoi: {{offer.rooms_no}}</p>
                 <p>Balkon: {{offer.balcony|yesno:"Tak,Nie"}}</p>
             </div>
             <div class="parameters"><p>Cena: {{offer.price}}zł</p></div></br>
 
 
             <div class="row">
-                <div class="col-xs-6 col-md-3">
-                  <a href="#" class="thumbnail">
-                    <img src="{{ offer.main_image.url }}" height="120" width="220" alt="error">
-                  </a>
-                </div>
                 {% for pic in gallery %}
                 <div class="col-xs-6 col-md-3">
-                  <a href="#" class="thumbnail">
-                    <img src="{{ pic.images.url }}" height="120" width="220" alt="error">
+                  <a href="http://cardom.pl/photos/offer_{{offer.id}}/{{pic.id}}_2.jpg" class="thumbnail">
+                    <img src="http://cardom.pl/photos/offer_{{offer.id}}/{{pic.id}}_2.jpg" height="120" width="220" alt="error">
                   </a>
                 </div>
                 {% endfor %}
@@ -38,7 +33,7 @@
             <div class="col-md-7">
                 <div class="panel panel-default">
                     <div class="panel-heading" id="opis"><strong>Opis oferty</strong></div>
-                    <div class="panel-body">{{ offer.description }}</div>
+                    <div class="panel-body">{{ offer.description.value | safe }}</div>
                 </div>
             </div>
             
