@@ -20,8 +20,9 @@
 }
 
 .info {
-    background-color: #ABABAB;
+    background-color: #1c1e20;
     font-weight: bold;
+    color: white
 }
 
 .location {

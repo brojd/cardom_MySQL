@@ -15,12 +15,11 @@
   margin: 4px 8px;
 }
 
-
-
 .info {
-    background-color: #ABABAB;
+    background-color: #1c1e20;
     font-weight: bold;
-    text-align: center
+    color: white;
+    text-align: center;
 }
 
 .location {

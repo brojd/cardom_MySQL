@@ -101,6 +101,13 @@
         <div class="col-md-10 col-sm-20 col-xs-40">
           {% block content %}
           {% endblock %}
+          <script type="text/javascript">
+                  $('.info').hover(function() {
+                      $(this).css('color', '#940e00');
+                  }, function () {
+                      $(this).css('color', 'white');
+                  })
+          </script>
         </div>
       </div>
     </div>
