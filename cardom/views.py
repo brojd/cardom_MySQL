@@ -147,19 +147,19 @@ def other_objects(request):
     return render(request, 'cardom/other_objects.html', context_dict)
 
 def about(request):
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())    
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())    
     return render(request, 'cardom/about.html', {'filter': f})
 
 def contact(request):
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     return render(request, 'cardom/contact.html', {'filter': f})
 
 def career(request):
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     return render(request, 'cardom/career.html', {'filter': f})
 
 def publish_offer(request):
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     
     form = PublishForm()
     if request.method=="POST":
@@ -184,11 +184,11 @@ def publish_offer(request):
     return render(request, 'cardom/publish_offer.html', context_dict)
 
 def credits(request):
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     return render(request, 'cardom/credits.html', {'filter': f})
 
 def prices(request):
-    f = OfferFilter(request.GET, queryset=Offer.objects.all())
+    f = OfferFilter(request.GET, queryset=Offers.objects.all())
     return render(request, 'cardom/prices.html', {'filter': f})
 
 def offer_list(request):
