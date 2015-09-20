@@ -88,6 +88,16 @@
             <input type="submit" class="search_button" value="Szukaj"/>
           </form>
         </div>
+        <script type="text/javascript">
+        var elementPosition = $('#search_form').offset();
+        $(window).scroll(function(){
+                if($(window).scrollTop() > elementPosition.top){
+                      $('#search_form').css('position','fixed').css('top','10%');
+                } else {
+                    $('#search_form').css('position','static');
+                }    
+        });
+        </script>
         <div class="col-md-10 col-sm-20 col-xs-40">
           {% block content %}
           {% endblock %}
